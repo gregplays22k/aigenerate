@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cool Website</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="signup-form">
+    <h2>Sign Up</h2>
+    <input type="text" id="signup-username" placeholder="Username"><br><br>
+    <input type="password" id="signup-password" placeholder="Password"><br><br>
+    <button onclick="signup()">Sign Up</button>
+    <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+</div>
+
+<div class="container hidden" id="login-form">
+    <h2>Login</h2>
+    <input type="text" id="login-username" placeholder="Username"><br><br>
+    <input type="password" id="login-password" placeholder="Password"><br><br>
+    <button onclick="login()">Login</button>
+    <p>Don't have an account? <a href="#" onclick="showSignup()">Sign Up</a></p>
+</div>
+
+<div class="container hidden" id="user-dashboard">
+    <h2>Welcome, <span id="user-display"></span>!</h2>
+    <button onclick="logout()">Logout</button><br><br>
+
+    <h3>Preferences:</h3>
+    <label for="color-preference">Theme Color:</label>
+    <select id="color-preference" onchange="updatePreference('color', this.value)">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="blue">Blue</option>
+    </select><br><br>
+
+    <h3>AI Chat:</h3>
+    <textarea id="ai-input" placeholder="Ask me anything..." rows="4" cols="50"></textarea><br>
+    <button onclick="aiChat()">Send</button><br>
+    <div id="ai-response"></div><br>
+
+    <h3>Cool Feature 1: Random Number</h3>
+    <button onclick="randomNumber()">Generate Random Number</button>
+    <p id="random-number-display"></p>
+
+    <h3>Cool Feature 2: Time</h3>
+    <p id="time-display"></p>
+
+    <h3>Cool Feature 3: Custom Message</h3>
+    <input type="text" id="custom-message-input" placeholder="Enter your custom message">
+    <button onclick="displayCustomMessage()">Display Message</button>
+    <p id="custom-message-display"></p>
+
+</div>
+
+<script src="script.js"></script>
+<script src="ai.js"></script>
+</body>
+</html>
