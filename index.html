@@ -7,7 +7,7 @@
             font-family: sans-serif;
         }
         .container {
-            width: 400px;
+            width: 80%; /* Increased width for the coding shell */
             margin: 50px auto;
             border: 1px solid #ccc;
             padding: 20px;
@@ -15,18 +15,26 @@
         .hidden {
             display: none;
         }
+        #python-code {
+            width: 100%;
+            height: 200px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        #python-output {
+            width: 100%;
+            height: 100px;
+            border: 1px solid #eee;
+            background-color: #f9f9f9;
+            font-family: monospace;
+            font-size: 14px;
+            overflow-y: auto;
+        }
     </style>
 </head>
 <body>
 
-<div class="container" id="signup-form">
-    <h2>CAPITA Sign Up</h2>
-    <input type="text" id="signup-username" placeholder="Username"><br><br>
-    <input type="password" id="signup-password" placeholder="Password"><br><br>
-    <button onclick="signup()">Sign Up</button>
-</div>
-
-<div class="container hidden" id="user-dashboard">
+<div class="container" id="user-dashboard">
     <h2>Welcome, <span id="user-display"></span>!</h2>
     <button onclick="logout()">Logout</button><br><br>
 
@@ -55,9 +63,29 @@
     <button onclick="displayCustomMessage()">Display Message</button>
     <p id="custom-message-display"></p>
 
+    <h3>Python Coding Shell</h3>
+    <textarea id="python-code" placeholder="Enter Python code here..."></textarea><br>
+    <button onclick="runPythonCode()">Run Python Code</button><br>
+    <div id="python-output"></div>
+
 </div>
 
 <script src="script.js"></script>
 <script src="ai.js"></script>
+<script>
+    function runPythonCode() {
+        const code = document.getElementById('python-code').value;
+        const outputDiv = document.getElementById('python-output');
+        outputDiv.innerHTML = "Running...";
+
+        // This is a placeholder. In a real application, you would send the code
+        // to a server-side Python interpreter and receive the output.
+        // For security reasons, running arbitrary Python code in the browser is not directly possible.
+        // This example will simply echo the code (simulating an output).
+        setTimeout(() => {
+            outputDiv.innerHTML = code; // Replace with actual server response
+        }, 1000); // Simulate processing time
+    }
+</script>
 </body>
 </html>
